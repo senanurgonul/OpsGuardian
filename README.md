@@ -36,7 +36,7 @@
 Modeller belirli metriklerle eğitildi ve kaydedildi.
 
 ### 3. Airflow ile Otomasyon
-Günlük çalışan bir görev ile modeller yeniden eğitiliyor ve versiyonlanıyor.
+Airflow DAG ile günlük çalışan bir görev ile modeller yeniden eğitiliyor ve versiyonlanıyor.
 
 ### 4. MLflow Entegrasyonu
 - Model eğitim süreçleri MLflow ile otomatik olarak loglandı.
@@ -48,8 +48,13 @@ Veri CSV dosyasından içe aktarıldı ve aşağıdaki grafikler hazırlandı:
 - Anomali vs normal oranı (pie chart)
 - Zaman serisi CPU sıcaklığı ve bandwidth (line chart, anomaly tooltip’li)
 
-### 6. Docker ile Servis Yapılandırması
-- Airflow, veritabanı ve yardımcı servisler Docker üzerinden ayağa kaldırıldı. Böylece taşınabilir ve izole bir ortam elde edildi.
----
+### 6. FastAPI Servisi
+Eğitilen modelleri bir REST API üzerinden sunmak için FastAPI kuruldu.
 
-> Bu proje; makine öğrenmesi, otomasyon, görselleştirme ve yazılım mühendisliği becerilerini bir araya getirerek profesyonel düzeyde bir yapay zeka izleme platformu ortaya koyar.
+ **/predict/anomaly** → Anomali tahmini döner  
+ **/predict/status** → Durum sınıfı tahmini döner
+
+
+### 7. Docker ile Servis Yapılandırması
+- Airflow, veritabanı ve yardımcı servisler Docker üzerinden ayağa kaldırıldı. Böylece taşınabilir ve izole bir ortam elde edildi.
+
